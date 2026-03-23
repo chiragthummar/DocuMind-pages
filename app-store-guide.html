@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuMind — Complete App Store Submission Guide</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+            background: #F8FAFB;
+            color: #0F172A;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 48px 0 40px;
+            border-bottom: 1px solid #E2E8F0;
+            margin-bottom: 40px;
+        }
+        .logo-icon {
+            width: 72px; height: 72px;
+            background: linear-gradient(135deg, #2563EB, #7C3AED);
+            border-radius: 18px;
+            display: inline-flex; align-items: center; justify-content: center;
+            color: white; font-size: 36px; font-weight: 700;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 30px rgba(37,99,235,0.3);
+        }
+        .header h1 { font-size: 36px; font-weight: 800; letter-spacing: -0.5px; }
+        .header p { font-size: 16px; color: #64748B; margin-top: 8px; }
+
+        /* Navigation */
+        .toc {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 40px;
+        }
+        .toc h2 { font-size: 18px; font-weight: 700; margin-bottom: 16px; color: #0F172A; }
+        .toc ol { padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #2563EB; text-decoration: none; font-size: 15px; font-weight: 500; }
+        .toc a:hover { text-decoration: underline; }
+
+        /* Steps */
+        .step {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+        .step-number {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, #2563EB, #7C3AED);
+            color: white; font-size: 14px; font-weight: 800;
+            border-radius: 10px; margin-right: 12px;
+        }
+        .step h2 {
+            display: inline; font-size: 22px; font-weight: 700;
+            vertical-align: middle;
+        }
+        .step h3 { font-size: 17px; font-weight: 700; margin-top: 24px; margin-bottom: 8px; color: #0F172A; }
+        .step p { font-size: 15px; color: #475569; margin-bottom: 10px; }
+        .step ul, .step ol { padding-left: 22px; margin-bottom: 12px; }
+        .step li { font-size: 15px; color: #475569; margin-bottom: 6px; }
+
+        /* Code / Copy blocks */
+        .copy-block {
+            position: relative;
+            background: #F1F5F9;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 12px 0 16px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 13px;
+            color: #334155;
+            white-space: pre-wrap;
+            word-break: break-word;
+            line-height: 1.6;
+        }
+        .copy-btn {
+            position: absolute; top: 8px; right: 8px;
+            background: #2563EB; color: white;
+            border: none; border-radius: 8px;
+            padding: 6px 14px; font-size: 12px; font-weight: 600;
+            cursor: pointer; transition: all 0.15s;
+        }
+        .copy-btn:hover { background: #1D4ED8; }
+        .copy-btn.copied { background: #059669; }
+
+        /* Info boxes */
+        .info {
+            background: #2563EB08;
+            border-left: 3px solid #2563EB;
+            padding: 14px 18px;
+            border-radius: 0 12px 12px 0;
+            margin: 14px 0;
+        }
+        .info p { margin: 0; color: #1E40AF; font-size: 14px; }
+        .warning {
+            background: #F59E0B08;
+            border-left: 3px solid #F59E0B;
+            padding: 14px 18px;
+            border-radius: 0 12px 12px 0;
+            margin: 14px 0;
+        }
+        .warning p { margin: 0; color: #92400E; font-size: 14px; }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            font-size: 14px;
+        }
+        th {
+            background: #F1F5F9;
+            text-align: left;
+            padding: 10px 14px;
+            font-weight: 700;
+            color: #0F172A;
+            border-bottom: 2px solid #E2E8F0;
+        }
+        td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #F1F5F9;
+            color: #475569;
+        }
+        tr:hover td { background: #F8FAFB; }
+
+        /* Tags */
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .tag-required { background: #DC262615; color: #DC2626; }
+        .tag-optional { background: #05966915; color: #059669; }
+        .tag-important { background: #2563EB15; color: #2563EB; }
+
+        /* Checklist */
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li {
+            padding: 8px 0 8px 32px;
+            position: relative;
+            border-bottom: 1px solid #F1F5F9;
+        }
+        .checklist li::before {
+            content: "☐";
+            position: absolute; left: 4px; top: 8px;
+            font-size: 16px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #E2E8F0;
+            font-size: 13px;
+            color: #94A3B8;
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 24px 16px 60px; }
+            .step { padding: 20px; }
+            .header h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="logo-icon">D</div>
+        <h1>App Store Submission Guide</h1>
+        <p>Complete step-by-step guide to publish DocuMind on the App Store</p>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc">
+        <h2>📋 Table of Contents</h2>
+        <ol>
+            <li><a href="#step1">Prerequisites & Apple Developer Account</a></li>
+            <li><a href="#step2">App Store Connect Setup</a></li>
+            <li><a href="#step3">App Information & Metadata</a></li>
+            <li><a href="#step4">App Privacy Details</a></li>
+            <li><a href="#step5">In-App Purchases & Subscriptions</a></li>
+            <li><a href="#step6">Screenshots & App Preview</a></li>
+            <li><a href="#step7">Xcode Archive & Upload</a></li>
+            <li><a href="#step8">App Review Submission</a></li>
+            <li><a href="#step9">Post-Launch Checklist</a></li>
+            <li><a href="#step10">Ready-to-Copy Content</a></li>
+        </ol>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="step" id="step1">
+        <span class="step-number">1</span>
+        <h2>Prerequisites & Apple Developer Account</h2>
+
+        <h3>Apple Developer Program</h3>
+        <ul class="checklist">
+            <li>Enroll at <a href="https://developer.apple.com/programs/" target="_blank">developer.apple.com/programs</a> ($99/year)</li>
+            <li>Wait for enrollment approval (usually 24-48 hours)</li>
+            <li>Sign in to <a href="https://appstoreconnect.apple.com" target="_blank">App Store Connect</a></li>
+        </ul>
+
+        <h3>Xcode Configuration</h3>
+        <ul class="checklist">
+            <li>Xcode 16+ installed</li>
+            <li>Signed in with your Apple Developer account in Xcode → Settings → Accounts</li>
+            <li>Bundle ID: <code>com.shayona.documind</code></li>
+            <li>Team selected in Signing & Capabilities</li>
+            <li>Automatic signing enabled</li>
+        </ul>
+
+        <h3>Certificates & Profiles</h3>
+        <p>With automatic signing, Xcode handles this. If manual:</p>
+        <ul>
+            <li>Create iOS Distribution Certificate in Apple Developer portal</li>
+            <li>Create App Store provisioning profile for <code>com.shayona.documind</code></li>
+            <li>Download and install both in Xcode</li>
+        </ul>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step" id="step2">
+        <span class="step-number">2</span>
+        <h2>App Store Connect Setup</h2>
+
+        <h3>Create the App</h3>
+        <ol>
+            <li>Go to <a href="https://appstoreconnect.apple.com/apps" target="_blank">App Store Connect → My Apps</a></li>
+            <li>Click <strong>+ New App</strong></li>
+            <li>Fill in:</li>
+        </ol>
+
+        <table>
+            <tr><th>Field</th><th>Value</th></tr>
+            <tr><td>Platform</td><td>iOS</td></tr>
+            <tr><td>Name</td><td><strong>DocuMind - PDF Scanner & AI</strong></td></tr>
+            <tr><td>Primary Language</td><td>English (U.S.)</td></tr>
+            <tr><td>Bundle ID</td><td>com.shayona.documind</td></tr>
+            <tr><td>SKU</td><td>documind-ios-001</td></tr>
+            <tr><td>User Access</td><td>Full Access</td></tr>
+        </table>
+
+        <div class="info">
+            <p>💡 <strong>App Name Tips:</strong> The name must be unique on the App Store. If "DocuMind" is taken, try: "DocuMind - Smart PDF Scanner", "DocuMind: AI Document Hub", or "DocuMind PDF & Scanner Pro"</p>
+        </div>
+
+        <h3>Alternative App Names (if needed)</h3>
+        <div class="copy-block">DocuMind - PDF Scanner & AI
+DocuMind: Smart PDF Manager
+DocuMind - Scan, Edit & Sign PDF
+DocuMind: AI Document Scanner
+DocuMind PDF - Scan & Organize</div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step" id="step3">
+        <span class="step-number">3</span>
+        <h2>App Information & Metadata</h2>
+
+        <h3>App Store Description <span class="tag tag-required">Required</span></h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>DocuMind is your all-in-one PDF document manager powered by AI. Scan documents with your camera, edit and annotate PDFs, sign documents, and use intelligent AI tools to summarize, translate, and extract data — all from your iPhone.
+
+SCAN & CAPTURE
+• Scan documents using your camera with auto-edge detection
+• OCR text recognition in 15+ languages
+• Auto-enhance scans for crystal-clear results
+• Crop, rotate, and reorder scanned pages
+
+AI-POWERED INTELLIGENCE
+• Summarize lengthy documents in seconds
+• Translate documents across multiple languages
+• Extract tables, data, and key information
+• Chat with your PDFs — ask questions and get cited answers
+
+PDF EDITING & ANNOTATION
+• Highlight, underline, and strikethrough text
+• Draw freehand annotations
+• Add text notes, shapes, and stamps
+• Insert images and manage pages
+
+SIGN DOCUMENTS
+• Draw your signature and place it anywhere on the page
+• Drag-to-position with pinch-to-resize
+• Save and reuse signatures
+
+POWERFUL PDF TOOLS
+• Convert PDF to images (JPG/PNG)
+• Convert images to PDF
+• Add text or image watermarks with drag positioning
+• Password protect and unlock PDFs
+• Rotate, organize, and repair PDFs
+• Add page numbers
+• OCR scanned PDFs for searchable text
+
+ORGANIZE YOUR LIBRARY
+• Import from Files, camera, or create blank PDFs
+• Search across all documents and content
+• Filter by type: All, PDFs, Scans, Favorites
+• Sort by date, name, or size
+
+PRIVACY FIRST
+• All document processing happens on your device
+• API keys stored securely in iOS Keychain
+• No tracking, no analytics, no ads
+• Your documents never leave your phone
+
+DOCUMIND PRO
+Unlock the full experience with Pro:
+• Unlimited scans and AI tools
+• Full PDF editor and signing
+• Merge, split, and protect PDFs
+• iCloud sync across devices
+• No watermarks on exports
+
+Download DocuMind today and take control of your documents.</div>
+
+        <h3>Subtitle (30 characters max) <span class="tag tag-required">Required</span></h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>AI PDF Scanner & Editor</div>
+
+        <h3>Promotional Text (170 characters max) <span class="tag tag-optional">Optional</span></h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>Scan, edit, sign & organize PDFs with AI intelligence. Summarize documents, extract data, and chat with your files — all on your iPhone.</div>
+
+        <h3>Keywords (100 characters max) <span class="tag tag-required">Required</span></h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>pdf,scanner,ocr,document,sign,edit,ai,summarize,translate,merge,watermark,convert,organize,scan</div>
+
+        <h3>Support URL <span class="tag tag-required">Required</span></h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>https://chiragthummar.github.io/DocuMind-pages/</div>
+
+        <h3>Privacy Policy URL <span class="tag tag-required">Required</span></h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>https://chiragthummar.github.io/DocuMind-pages/privacy.html</div>
+
+        <h3>Marketing URL <span class="tag tag-optional">Optional</span></h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>https://chiragthummar.github.io/DocuMind-pages/</div>
+
+        <h3>Category</h3>
+        <table>
+            <tr><th>Field</th><th>Value</th></tr>
+            <tr><td>Primary Category</td><td><strong>Productivity</strong></td></tr>
+            <tr><td>Secondary Category</td><td><strong>Business</strong></td></tr>
+        </table>
+
+        <h3>Age Rating</h3>
+        <p>Answer "None" to all content description questions. The app rating will be <strong>4+</strong>.</p>
+
+        <h3>Copyright</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>2026 DocuMind</div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step" id="step4">
+        <span class="step-number">4</span>
+        <h2>App Privacy Details</h2>
+
+        <p>In App Store Connect → App Privacy, fill out the privacy questionnaire:</p>
+
+        <h3>Data Collection</h3>
+        <table>
+            <tr><th>Question</th><th>Answer</th></tr>
+            <tr><td>Do you or your third-party partners collect data?</td><td><strong>Yes</strong></td></tr>
+        </table>
+
+        <h3>Data Types Collected</h3>
+        <table>
+            <tr><th>Data Type</th><th>Collected?</th><th>Purpose</th><th>Linked to User?</th></tr>
+            <tr><td>Purchases</td><td>Yes</td><td>App Functionality</td><td>Yes</td></tr>
+            <tr><td>Identifiers (User ID)</td><td>No</td><td>—</td><td>—</td></tr>
+            <tr><td>Usage Data</td><td>No</td><td>—</td><td>—</td></tr>
+            <tr><td>Diagnostics</td><td>No</td><td>—</td><td>—</td></tr>
+            <tr><td>Location</td><td>No</td><td>—</td><td>—</td></tr>
+            <tr><td>Contact Info</td><td>No</td><td>—</td><td>—</td></tr>
+            <tr><td>User Content (Documents)</td><td>No*</td><td>—</td><td>—</td></tr>
+        </table>
+
+        <div class="info">
+            <p>💡 *Documents are stored locally on device only. When AI features are used, text is sent to the user's own API provider — not collected by us.</p>
+        </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step" id="step5">
+        <span class="step-number">5</span>
+        <h2>In-App Purchases & Subscriptions</h2>
+
+        <h3>Create Subscription Group</h3>
+        <ol>
+            <li>Go to App Store Connect → Your App → <strong>Subscriptions</strong></li>
+            <li>Click <strong>+ Create Subscription Group</strong></li>
+            <li>Group Name: <strong>DocuMind Pro</strong></li>
+        </ol>
+
+        <h3>Add Subscription Products</h3>
+
+        <table>
+            <tr><th>Field</th><th>Monthly Plan</th><th>Yearly Plan</th></tr>
+            <tr><td>Reference Name</td><td>DocuMind Pro Monthly</td><td>DocuMind Pro Yearly</td></tr>
+            <tr><td>Product ID</td><td><code>com.shayona.documind.pro.monthly</code></td><td><code>com.shayona.documind.pro.annual</code></td></tr>
+            <tr><td>Price</td><td>$3.99/month</td><td>$39.99/year</td></tr>
+            <tr><td>Duration</td><td>1 Month</td><td>1 Year</td></tr>
+            <tr><td>Free Trial</td><td>None</td><td>3 Days (optional)</td></tr>
+            <tr><td>Grace Period</td><td>Enabled (16 days)</td><td>Enabled (16 days)</td></tr>
+        </table>
+
+        <h3>Subscription Display Name & Description</h3>
+
+        <p><strong>Monthly:</strong></p>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>Display Name: DocuMind Pro - Monthly
+Description: Unlimited scans, full AI suite, PDF editor, signatures, merge/split, iCloud sync, and no watermarks. Billed monthly.</div>
+
+        <p><strong>Yearly:</strong></p>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>Display Name: DocuMind Pro - Yearly
+Description: Unlimited scans, full AI suite, PDF editor, signatures, merge/split, iCloud sync, and no watermarks. Billed annually. Save over 15% compared to monthly.</div>
+
+        <h3>Subscription Localization</h3>
+        <p>For each subscription, add at least English (U.S.) localization with the display name and description above.</p>
+
+        <h3>Review Information for Subscriptions</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>Review Notes: The app offers a free tier with limited daily usage (3 scans/day, basic AI tools). The Pro subscription unlocks unlimited access to all features including unlimited scanning, full AI tools, PDF editor, signatures, merge/split, password protection, iCloud sync, and watermark-free exports. Users can subscribe monthly ($3.99) or yearly ($39.99).</div>
+
+        <div class="warning">
+            <p>⚠️ <strong>Important:</strong> Subscriptions must be submitted for review before or alongside the app. They need Apple's approval before going live.</p>
+        </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="step" id="step6">
+        <span class="step-number">6</span>
+        <h2>Screenshots & App Preview</h2>
+
+        <h3>Required Screenshot Sizes</h3>
+        <table>
+            <tr><th>Device</th><th>Size (pixels)</th><th>Required?</th></tr>
+            <tr><td>iPhone 6.9" (16 Pro Max)</td><td>1320 x 2868</td><td><span class="tag tag-required">Required</span></td></tr>
+            <tr><td>iPhone 6.7" (15 Pro Max)</td><td>1290 x 2796</td><td><span class="tag tag-required">Required</span></td></tr>
+            <tr><td>iPhone 6.5" (14 Plus)</td><td>1284 x 2778</td><td><span class="tag tag-optional">Optional</span></td></tr>
+            <tr><td>iPhone 5.5" (8 Plus)</td><td>1242 x 2208</td><td><span class="tag tag-optional">Optional</span></td></tr>
+        </table>
+
+        <div class="info">
+            <p>💡 You need <strong>minimum 3, maximum 10</strong> screenshots per size. The 6.9" and 6.7" are mandatory.</p>
+        </div>
+
+        <h3>Recommended Screenshots (6 screens)</h3>
+        <ol>
+            <li><strong>Home / Document Library</strong> — "All your documents in one place"</li>
+            <li><strong>Scanner</strong> — "Scan documents with your camera"</li>
+            <li><strong>AI Tools</strong> — "AI-powered document intelligence"</li>
+            <li><strong>PDF Editor</strong> — "Edit, annotate & sign PDFs"</li>
+            <li><strong>Tools Grid</strong> — "12+ powerful PDF tools"</li>
+            <li><strong>Paywall / Pro Features</strong> — "Unlock everything with Pro"</li>
+        </ol>
+
+        <h3>How to Capture</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button># Run on iPhone 16 Pro Max simulator:
+xcrun simctl boot "iPhone 16 Pro Max"
+xcrun simctl io "iPhone 16 Pro Max" screenshot ~/Desktop/screenshot_1.png
+
+# Or use Xcode: Window → Devices and Simulators → Take Screenshot</div>
+
+        <h3>App Preview Video <span class="tag tag-optional">Optional but Recommended</span></h3>
+        <p>15-30 second video showing the key features. Record on device or simulator, 1920x886 or device resolution, H.264 codec, .mov or .mp4 format.</p>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="step" id="step7">
+        <span class="step-number">7</span>
+        <h2>Xcode Archive & Upload</h2>
+
+        <h3>Pre-Archive Checklist</h3>
+        <ul class="checklist">
+            <li>Set <code>isPro = false</code> in StoreKitService.swift (disable testing override)</li>
+            <li>Version number matches App Store Connect (e.g., 1.6)</li>
+            <li>Build number is unique and incremented</li>
+            <li>Scheme set to <strong>Release</strong> (not Debug)</li>
+            <li>Device set to <strong>"Any iOS Device (arm64)"</strong></li>
+            <li>All signing certificates and profiles are valid</li>
+            <li>No compiler warnings (optional but recommended)</li>
+        </ul>
+
+        <h3>Disable Pro Testing Override</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>// In StoreKitService.swift, change:
+var isPro: Bool = true    // ← TESTING
+// To:
+var isPro: Bool = false   // ← PRODUCTION
+
+// Also in checkEntitlement(), change:
+isPro = true              // ← TESTING
+// To:
+isPro = foundTier != nil  // ← PRODUCTION</div>
+
+        <div class="warning">
+            <p>⚠️ <strong>Critical:</strong> Forgetting to disable the pro override means ALL users get Pro features for free!</p>
+        </div>
+
+        <h3>Archive</h3>
+        <ol>
+            <li>In Xcode: <strong>Product → Archive</strong> (or Cmd+Shift+B to build, then Product → Archive)</li>
+            <li>Wait for archive to complete</li>
+            <li>Organizer window opens automatically</li>
+        </ol>
+
+        <h3>Upload to App Store Connect</h3>
+        <ol>
+            <li>In Organizer: Select the archive → <strong>Distribute App</strong></li>
+            <li>Choose <strong>App Store Connect</strong></li>
+            <li>Choose <strong>Upload</strong></li>
+            <li>Leave all options checked (Strip Swift Symbols, Upload Symbols, Manage Version)</li>
+            <li>Select your Distribution Certificate and Profile</li>
+            <li>Click <strong>Upload</strong></li>
+            <li>Wait for processing (5-15 minutes)</li>
+        </ol>
+
+        <h3>Command Line Alternative</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button># Archive
+xcodebuild archive \
+  -project DocuMind.xcodeproj \
+  -scheme DocuMind \
+  -archivePath ~/Desktop/DocuMind.xcarchive \
+  -destination "generic/platform=iOS"
+
+# Export for App Store
+xcodebuild -exportArchive \
+  -archivePath ~/Desktop/DocuMind.xcarchive \
+  -exportPath ~/Desktop/DocuMind-Export \
+  -exportOptionsPlist ExportOptions.plist
+
+# Upload via altool or Transporter app</div>
+    </div>
+
+    <!-- STEP 8 -->
+    <div class="step" id="step8">
+        <span class="step-number">8</span>
+        <h2>App Review Submission</h2>
+
+        <h3>In App Store Connect</h3>
+        <ol>
+            <li>Go to your app → <strong>App Store</strong> tab</li>
+            <li>Select the build you uploaded</li>
+            <li>Fill in all metadata (Step 3 content)</li>
+            <li>Upload screenshots (Step 6)</li>
+            <li>Complete App Privacy (Step 4)</li>
+        </ol>
+
+        <h3>App Review Information <span class="tag tag-required">Required</span></h3>
+        <table>
+            <tr><th>Field</th><th>Value</th></tr>
+            <tr><td>Contact First Name</td><td>Your first name</td></tr>
+            <tr><td>Contact Last Name</td><td>Your last name</td></tr>
+            <tr><td>Contact Phone</td><td>Your phone number</td></tr>
+            <tr><td>Contact Email</td><td>Your email</td></tr>
+            <tr><td>Demo Account</td><td>Not required (no login)</td></tr>
+        </table>
+
+        <h3>Review Notes</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>DocuMind is a document management app with PDF scanning, editing, and AI tools.
+
+FREE FEATURES:
+- Document scanning (3/day), PDF viewer, basic AI tools (summarize, translate, extract — limited/month)
+- PDF to JPG, Image to PDF, Rotate PDF
+
+PRO FEATURES (subscription required):
+- Unlimited scans and AI tools
+- PDF editor, signatures, merge/split
+- Watermark, protect, organize, page numbers, repair, OCR, HTML to PDF
+- iCloud sync, no watermarks
+
+AI features require the user to provide their own API key (Anthropic Claude or OpenAI). The app does not include pre-configured AI access — users bring their own keys.
+
+No login or account creation required. The app works entirely offline for PDF tools. AI features need internet and a valid API key.
+
+Privacy Policy: https://chiragthummar.github.io/DocuMind-pages/privacy.html
+Terms of Service: https://chiragthummar.github.io/DocuMind-pages/terms.html</div>
+
+        <h3>Submit for Review</h3>
+        <ol>
+            <li>Review all information one final time</li>
+            <li>Click <strong>"Add for Review"</strong></li>
+            <li>Click <strong>"Submit to App Review"</strong></li>
+            <li>Status changes to <strong>"Waiting for Review"</strong></li>
+        </ol>
+
+        <h3>Expected Timeline</h3>
+        <table>
+            <tr><th>Status</th><th>Duration</th></tr>
+            <tr><td>Waiting for Review</td><td>24-48 hours</td></tr>
+            <tr><td>In Review</td><td>1-24 hours</td></tr>
+            <tr><td>Approved / Rejected</td><td>Total: 1-3 days typically</td></tr>
+        </table>
+
+        <div class="warning">
+            <p>⚠️ <strong>Common Rejection Reasons:</strong></p>
+            <p>• Missing privacy policy link<br>
+            • Screenshots don't match app functionality<br>
+            • Subscription terms not clearly displayed<br>
+            • App crashes during review<br>
+            • Incomplete metadata or missing required fields</p>
+        </div>
+    </div>
+
+    <!-- STEP 9 -->
+    <div class="step" id="step9">
+        <span class="step-number">9</span>
+        <h2>Post-Launch Checklist</h2>
+
+        <ul class="checklist">
+            <li>Monitor App Store Connect for review status</li>
+            <li>Check crash reports in Xcode Organizer</li>
+            <li>Respond to user reviews in App Store Connect</li>
+            <li>Monitor subscription analytics</li>
+            <li>Set up App Store Connect notifications (email alerts)</li>
+            <li>Test the live app by downloading from App Store</li>
+            <li>Verify in-app purchases work in production</li>
+            <li>Verify privacy policy and terms links work</li>
+            <li>Share the App Store link on social media</li>
+            <li>Submit for featuring consideration (optional)</li>
+        </ul>
+
+        <h3>App Store Link Format</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>https://apps.apple.com/app/documind-pdf-scanner-ai/id[YOUR_APP_ID]</div>
+    </div>
+
+    <!-- STEP 10 -->
+    <div class="step" id="step10">
+        <span class="step-number">10</span>
+        <h2>Ready-to-Copy Content Summary</h2>
+
+        <h3>App Name</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>DocuMind - PDF Scanner & AI</div>
+
+        <h3>Subtitle</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>AI PDF Scanner & Editor</div>
+
+        <h3>Bundle ID</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>com.shayona.documind</div>
+
+        <h3>SKU</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>documind-ios-001</div>
+
+        <h3>Keywords</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>pdf,scanner,ocr,document,sign,edit,ai,summarize,translate,merge,watermark,convert,organize,scan</div>
+
+        <h3>Copyright</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>2026 DocuMind</div>
+
+        <h3>Support URL</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>https://chiragthummar.github.io/DocuMind-pages/</div>
+
+        <h3>Privacy URL</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>https://chiragthummar.github.io/DocuMind-pages/privacy.html</div>
+
+        <h3>Terms URL</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>https://chiragthummar.github.io/DocuMind-pages/terms.html</div>
+
+        <h3>Monthly Subscription ID</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>com.shayona.documind.pro.monthly</div>
+
+        <h3>Yearly Subscription ID</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>com.shayona.documind.pro.annual</div>
+
+        <h3>Primary Category</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>Productivity</div>
+
+        <h3>Secondary Category</h3>
+        <div class="copy-block"><button class="copy-btn" onclick="copyBlock(this)">Copy</button>Business</div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 DocuMind. Generated for App Store submission.<br>
+        <a href="https://chiragthummar.github.io/DocuMind-pages/">DocuMind</a> &middot;
+        <a href="https://chiragthummar.github.io/DocuMind-pages/privacy.html">Privacy</a> &middot;
+        <a href="https://chiragthummar.github.io/DocuMind-pages/terms.html">Terms</a>
+    </div>
+
+</div>
+
+<script>
+function copyBlock(btn) {
+    const block = btn.parentElement;
+    const text = block.textContent.replace('Copy', '').replace('Copied!', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = 'Copy';
+            btn.classList.remove('copied');
+        }, 2000);
+    });
+}
+</script>
+</body>
+</html>
