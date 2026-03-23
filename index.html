@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuMind - Smart Document Management</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+            background: #F8FAFB;
+            color: #0F172A;
+            -webkit-font-smoothing: antialiased;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 24px 60px;
+            background: linear-gradient(180deg, #F8FAFB 0%, white 100%);
+        }
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2563EB, #7C3AED);
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.3);
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563EB, #7C3AED);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: #475569;
+            max-width: 500px;
+            margin: 0 auto 32px;
+            line-height: 1.6;
+        }
+        .links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .link-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .link-primary {
+            background: linear-gradient(135deg, #2563EB, #7C3AED);
+            color: white;
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+        }
+        .link-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4); }
+        .link-secondary {
+            background: white;
+            color: #0F172A;
+            border: 1px solid #E2E8F0;
+        }
+        .link-secondary:hover { background: #F1F5F9; }
+        .features {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .feature {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid #E2E8F0;
+        }
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        .feature h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .feature p {
+            font-size: 14px;
+            color: #64748B;
+            line-height: 1.5;
+        }
+        .footer {
+            text-align: center;
+            padding: 24px;
+            border-top: 1px solid #E2E8F0;
+            font-size: 13px;
+            color: #94A3B8;
+        }
+        .footer a { color: #2563EB; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="logo-icon">D</div>
+        <h1><span class="gradient-text">DocuMind</span></h1>
+        <p class="subtitle">Smart document management with AI-powered tools. Scan, edit, sign, and organize your PDFs — all on your iPhone.</p>
+        <div class="links">
+            <a href="privacy.html" class="link-card link-secondary">Privacy Policy</a>
+            <a href="terms.html" class="link-card link-secondary">Terms of Service</a>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feature">
+            <div class="feature-icon">📄</div>
+            <h3>Scan & OCR</h3>
+            <p>Scan documents with your camera and extract text automatically.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🤖</div>
+            <h3>AI Tools</h3>
+            <p>Summarize, translate, extract data, and chat with your documents.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">✏️</div>
+            <h3>Edit & Sign</h3>
+            <p>Annotate, highlight, draw, add text, and sign PDFs with ease.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🔧</div>
+            <h3>PDF Tools</h3>
+            <p>Convert, merge, split, watermark, protect, and more.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🔒</div>
+            <h3>Privacy First</h3>
+            <p>All processing happens on-device. Your documents never leave your phone.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">☁️</div>
+            <h3>iCloud Sync</h3>
+            <p>Access your documents across all your Apple devices seamlessly.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 DocuMind. All rights reserved.<br>
+        <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a> &middot; <a href="mailto:support@documind.app">Contact</a>
+    </div>
+</body>
+</html>
