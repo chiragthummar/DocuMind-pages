@@ -98,7 +98,7 @@
         </div>
 
         <h1>Privacy Policy</h1>
-        <p class="updated">Last updated: March 23, 2026</p>
+        <p class="updated">Last updated: March 25, 2026</p>
 
         <div class="highlight">
             <p><strong>Your privacy matters.</strong> DocuMind is designed with a privacy-first approach. Your documents stay on your device. We do not collect, store, or sell your personal data.</p>
@@ -113,12 +113,38 @@
             <li><strong>Purchase Information:</strong> Subscription and purchase data is managed entirely by Apple through the App Store. We do not have access to your payment details.</li>
         </ul>
 
-        <h2>2. AI Features</h2>
-        <p>When you use AI-powered features (Summarize, Translate, Chat, etc.):</p>
+        <h2>2. Third-Party AI Services & Data Sharing</h2>
+        <div class="highlight">
+            <p><strong>Important:</strong> DocuMind's AI features send your document text to third-party AI providers. You must explicitly consent to this data sharing before using any AI feature for the first time.</p>
+        </div>
+
+        <p><strong>What data is sent:</strong></p>
         <ul>
-            <li>Document text is sent directly from your device to the AI provider (Anthropic or OpenAI) using your own API key.</li>
-            <li>We do not act as an intermediary or store any of the data transmitted.</li>
-            <li>Please review the privacy policies of <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic</a> and <a href="https://openai.com/privacy" target="_blank">OpenAI</a> for how they handle data.</li>
+            <li>Document text content that you choose to analyze (e.g., when you tap Summarize, Translate, or Extract)</li>
+            <li>Your typed prompts and questions when using AI Chat</li>
+            <li>Selected text for translation, summarization, or data extraction</li>
+        </ul>
+
+        <p><strong>Who receives your data:</strong></p>
+        <ul>
+            <li><strong>Anthropic (Claude API)</strong> — if you configure Claude as your AI provider. See <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic's Privacy Policy</a>.</li>
+            <li><strong>OpenAI (GPT API)</strong> — if you configure OpenAI as your AI provider. See <a href="https://openai.com/privacy" target="_blank">OpenAI's Privacy Policy</a>.</li>
+        </ul>
+
+        <p><strong>How data sharing works:</strong></p>
+        <ul>
+            <li>Data is sent directly from your device to the AI provider you configure — DocuMind does not act as an intermediary.</li>
+            <li>You provide your own API key, which is stored locally in the iOS Keychain.</li>
+            <li>No data is sent automatically — AI features are activated only by your explicit action (tapping an AI tool button).</li>
+            <li>DocuMind does not store, log, or collect any data sent to or received from AI providers.</li>
+        </ul>
+
+        <p><strong>Your consent:</strong></p>
+        <ul>
+            <li>Before using any AI feature for the first time, DocuMind displays a data disclosure and consent screen explaining what data is sent and to whom.</li>
+            <li>You must tap "I Understand & Agree" to proceed. If you decline, no data is sent and AI features remain unavailable.</li>
+            <li>You can revoke consent at any time by removing your API key in Settings or resetting app settings.</li>
+            <li>All PDF tools (scan, edit, sign, merge, watermark, etc.) work fully offline without any data sharing.</li>
         </ul>
 
         <h2>3. iCloud Sync</h2>
